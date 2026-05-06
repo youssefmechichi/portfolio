@@ -1,0 +1,34 @@
+# nested app dependencies
+portfolio/web/node_modules/
+
+# Vite/build output
+portfolio/web/dist/
+portfolio/web/build/
+
+# local env/secrets
+.env
+.env.*
+!.env.example
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# editor/system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# test/coverage artifacts
+coverage/
+portfolio/web/coverage/
+
+# temporary/cache files
+.cache/
+.temp/
+.tmp/
+portfolio/web/.vite/
+portfolio/web/.eslintcache
