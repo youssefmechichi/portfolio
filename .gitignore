@@ -4,6 +4,8 @@ portfolio/web/node_modules/
 # Vite/build output
 portfolio/web/dist/
 portfolio/web/build/
+portfolio/web/assets/
+/node_modules/
 
 # local env/secrets
 .env
