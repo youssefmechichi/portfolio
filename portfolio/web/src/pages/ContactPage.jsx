@@ -12,6 +12,23 @@ import { Label } from '../components/ui/label.jsx';
 import { toast } from 'sonner';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
+
+const CONTACT_EMAIL = 'youssefmechichi@outlook.com';
+const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT || '/api/contact';
+const CONTACT_ACCESS_KEY = import.meta.env.VITE_CONTACT_ACCESS_KEY;
+
+async function readContactResponse(response) {
+  const contentType = response.headers.get('content-type') || '';
+
+  if (contentType.includes('application/json')) {
+    return response.json();
+  }
+
+  return {
+    error: 'Contact API is unavailable. If you are testing locally, run the app with Vercel so /api/contact is available.'
+  };
+}
+
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email address'),
@@ -32,12 +49,32 @@ function ContactPage() {
   const onSubmit = async data => {
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    console.log('Form data:', data);
-    toast.success('Message sent successfully');
-    reset();
-    setIsSubmitting(false);
+    try {
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          ...data,
+          access_key: CONTACT_ACCESS_KEY,
+          subject: `Portfolio message from ${data.name}`
+        })
+      });
+
+      if (!response.ok) {
+        const result = await readContactResponse(response);
+        throw new Error(result.error || 'Message delivery failed');
+      }
+
+      toast.success('Message sent successfully');
+      reset();
+    } catch (error) {
+      toast.error(error.message || 'Could not send your message. Please try again in a moment.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   return <>
       <Helmet>
@@ -89,8 +126,8 @@ function ContactPage() {
                         <Mail className="h-5 w-5 text-primary mt-0.5" />
                         <div>
                           <p className="font-medium">Email</p>
-                          <a href="mailto:contact@example.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                            youssefmechichi@outlook.com
+                          <a href={`mailto:${CONTACT_EMAIL}`} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                            {CONTACT_EMAIL}
                           </a>
                         </div>
                       </div>

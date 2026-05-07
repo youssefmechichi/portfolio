@@ -59,6 +59,20 @@ npm run build
 
 The production build is generated in `portfolio/web/dist/`.
 
+## Contact Form
+
+The contact form posts to `/api/contact` by default. On Vercel, configure these environment variables:
+
+```bash
+RESEND_API_KEY=your-resend-api-key
+CONTACT_TO_EMAIL=youssefmechichi@outlook.com
+CONTACT_FROM_EMAIL=Portfolio Contact <onboarding@resend.dev>
+```
+
+For production sending, verify a domain in Resend and replace `CONTACT_FROM_EMAIL` with an address on that domain. You can also point `VITE_CONTACT_ENDPOINT` at a different form service or backend that accepts JSON.
+
+Plain `npm run dev` only starts Vite and does not run the `/api/contact` serverless function. Test the full mail flow on Vercel, or run the app through Vercel's local dev server.
+
 ## Preview production build
 
 ```bash

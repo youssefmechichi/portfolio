@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { GitBranch, ContactIcon, Mail } from 'lucide-react';
 
+const CONTACT_EMAIL = 'youssefmechichi@outlook.com';
+
 function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -56,7 +58,7 @@ function Footer() {
               <ContactIcon className="h-5 w-5" />
             </a>
             <a
-              href="mailto:contact@example.com"
+              href={`mailto:${CONTACT_EMAIL}`}
               className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Email"
             >
