@@ -2,6 +2,19 @@
 
 A responsive React portfolio website built with Vite, Tailwind CSS, and reusable UI components.
 
+Live Demo: https://youssefmechichi.vercel.app
+
+## Tech Stack
+- React
+- Vite
+- TypeScript
+- TailwindCSS
+
+## Features
+- Responsive design
+- Modern UI
+- Fast deployment with Vercel
+
 ## Project structure
 
 - `portfolio/web/` — frontend application source
