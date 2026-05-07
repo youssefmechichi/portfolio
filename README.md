@@ -69,6 +69,16 @@ CONTACT_TO_EMAIL=youssefmechichi@outlook.com
 CONTACT_FROM_EMAIL=Portfolio Contact <onboarding@resend.dev>
 ```
 
+`RESEND_API_KEY` is a secret key from Resend. Create it in the Resend dashboard:
+
+1. Sign in at `https://resend.com`.
+2. Open **API Keys**.
+3. Click **Create API Key**.
+4. Copy the generated key. It usually starts with `re_`.
+5. Add it to the Vercel project environment variables as `RESEND_API_KEY`.
+
+Do not commit the real `RESEND_API_KEY` value to GitHub, `.env.example`, or any frontend file. Keep the real key only in Vercel environment variables or a local ignored `.env.local` file.
+
 For production sending, verify a domain in Resend and replace `CONTACT_FROM_EMAIL` with an address on that domain. You can also point `VITE_CONTACT_ENDPOINT` at a different form service or backend that accepts JSON.
 
 Plain `npm run dev` only starts Vite and does not run the `/api/contact` serverless function. Test the full mail flow on Vercel, or run the app through Vercel's local dev server.
