@@ -11,8 +11,8 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>DevPortfolio - AWS Cloud Developer</title>
-        <meta name="description" content="Professional portfolio showcasing AWS cloud development projects and expertise in serverless architecture, infrastructure as code, and cloud-native solutions." />
+        <title>DevPortfolio - AWS & GCP Cloud Developer</title>
+        <meta name="description" content="Professional portfolio showcasing AWS and GCP cloud development projects and expertise in serverless architecture, infrastructure as code, and cloud-native solutions." />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
@@ -44,10 +44,10 @@ function HomePage() {
                 className="mx-auto mb-8 h-32 w-32 md:h-40 md:w-40 rounded-full object-cover border-4 border-background shadow-xl ring-1 ring-border"
               />
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style={{ letterSpacing: '-0.02em' }}>
-                Building scalable cloud solutions on AWS
+                Building scalable cloud solutions on AWS and GCP
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
-                Cloud developer specializing in serverless architecture, infrastructure automation, and cost-optimized AWS deployments. Turning complex requirements into elegant, maintainable solutions.
+                Cloud developer specializing in serverless architecture, infrastructure automation, and cost-optimized AWS and GCP deployments. Turning complex requirements into elegant, maintainable solutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="text-base transition-all duration-200 active:scale-[0.98]">
@@ -89,7 +89,7 @@ function HomePage() {
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Cloud architecture</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Designing and implementing scalable AWS infrastructure using Lambda, API Gateway, DynamoDB, and S3. Focus on serverless patterns and event-driven architectures.
+                      Designing and implementing scalable AWS and GCP infrastructure using services like Lambda, API Gateway, DynamoDB, S3, GKE, Cloud SQL, BigQuery, and Pub/Sub. Focus on serverless, containerized, and event-driven architectures.
                     </p>
                   </div>
                 </div>
@@ -103,7 +103,7 @@ function HomePage() {
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Infrastructure as code</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Automating deployments with CloudFormation, CDK, and Terraform. Version-controlled infrastructure that enables consistent, repeatable deployments across environments.
+                      Automating deployments with CloudFormation, CDK, and Terraform across AWS and GCP. Version-controlled infrastructure that enables consistent, repeatable deployments across environments.
                     </p>
                   </div>
                 </div>
@@ -117,7 +117,7 @@ function HomePage() {
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Data engineering</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Building data pipelines with AWS Glue, Athena, and Kinesis. Processing and analyzing large datasets with efficient ETL workflows and real-time streaming.
+                      Building data pipelines with AWS Glue, Athena, Kinesis, BigQuery, Pub/Sub, and Document AI. Processing and analyzing large datasets with efficient ETL workflows and real-time streaming.
                     </p>
                   </div>
                 </div>
@@ -131,7 +131,7 @@ function HomePage() {
                   <div>
                     <h3 className="text-lg font-semibold mb-2">CI/CD automation</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Implementing automated testing and deployment pipelines with CodePipeline, CodeBuild, and GitHub Actions. Fast, reliable releases with comprehensive quality gates.
+                      Implementing automated testing and deployment pipelines with CodePipeline, CodeBuild, GitHub Actions, Artifact Registry, and GCP deployment workflows. Fast, reliable releases with comprehensive quality gates.
                     </p>
                   </div>
                 </div>

@@ -8,6 +8,38 @@ import ProjectCard from '../components/ProjectCard.jsx';
 function ProjectsPage() {
   const projects = [
     {
+      title: 'CloudCost AI — Production-Grade AI FinOps SaaS Platform on GCP',
+      description: 'Designed and deployed a production-grade AI-powered FinOps SaaS platform on GCP to help engineering teams ingest, analyze, forecast, and optimize cloud spending. The platform combines a modern full-stack SaaS architecture, secure authentication, billing data ingestion, AI-powered recommendations, Stripe monetization, containerized deployment, and cloud-native infrastructure on GCP.',
+      achievements: [
+        'Built a full-stack SaaS application using Next.js 15, TypeScript, NestJS, PostgreSQL, Prisma, TailwindCSS, and Recharts',
+        'Implemented secure JWT authentication with cookie-based sessions, signup/login flows, protected frontend routes, and authenticated backend APIs',
+        'Designed a multi-tenant SaaS data model with Users, Organizations, Subscriptions, and Billing Records',
+        'Developed a browser-based CSV billing ingestion workflow allowing users to upload cloud billing data and persist records in PostgreSQL',
+        'Created real-time dashboard pages for cost overview, billing history, invoice uploads, AI Advisor, pricing, and subscription management',
+        'Built a FinOps analytics engine calculating total spend, cost by service, monthly trends, forecasted spend, anomaly detection, and potential savings',
+        'Implemented anomaly detection logic to identify abnormal cloud spending patterns and highlight services requiring review',
+        'Developed an optimization recommendation engine suggesting cost-saving actions based on spend distribution, anomalies, and forecasted usage',
+        'Built an interactive AI Advisor interface allowing users to ask cloud cost questions and receive contextual FinOps explanations',
+        'Integrated Stripe Checkout, Stripe webhooks, and Stripe Billing Portal to manage Free/Pro subscriptions, payments, cancellations, invoices, and payment methods',
+        'Enforced backend feature gating so Free users access basic dashboards while Pro users unlock AI Advisor, anomaly detection, forecasting, reports, and advanced recommendations',
+        'Deployed a production-grade SaaS architecture on GCP using GKE Autopilot, Cloud SQL, Redis, BigQuery, and Artifact Registry',
+        'Automated infrastructure provisioning with Terraform, including VPC, IAM, GKE, Cloud SQL, Redis, Secret Manager, networking rules, and service accounts',
+        'Integrated Vertex AI Gemini to generate AI-powered cost explanations, anomaly summaries, and personalized optimization recommendations',
+        'Implemented BigQuery ML anomaly detection to identify abnormal cloud spending patterns from historical billing data',
+        'Automated PDF invoice extraction using Document AI and normalized extracted billing data into PostgreSQL and BigQuery',
+        'Implemented asynchronous processing pipelines with Pub/Sub, Redis, and BullMQ to handle invoice imports, AI report generation, and scheduled background jobs',
+        'Developed monthly AI-generated reports summarizing costs, anomalies, forecasts, recommendations, and estimated savings opportunities',
+        'Dockerized frontend and backend services using multi-stage Docker builds and created a production Docker Compose stack for local production simulation',
+        'Orchestrated services with Kubernetes and Helm, including health checks, autoscaling, secure configuration management, and environment-based deployment',
+        'Added a backend health endpoint, container health checks, Prisma migration automation, and production environment variable management',
+        'Implemented GitHub Actions CI/CD pipelines for backend/frontend build validation, linting, Prisma client generation, database migrations, testing, and automated deployment',
+        'Added observability with Prometheus/Grafana dashboards, alerting, application logs, k6 load testing, and security controls for production readiness',
+      ],
+      technologies: ['Next.js 15', 'TypeScript', 'NestJS', 'PostgreSQL', 'Prisma', 'Redis', 'BullMQ', 'Stripe', 'Docker', 'Docker Compose', 'Vercel', 'GCP', 'GKE Autopilot', 'Cloud SQL', 'BigQuery', 'Pub/Sub', 'Vertex AI Gemini', 'BigQuery ML', 'Document AI', 'Terraform', 'Helm', 'Prometheus', 'Grafana', 'k6'],
+      githubUrl: 'https://github.com/youssefmechichi/cloudcost-ai',
+      liveUrl: null
+    },
+    {
       title: 'Multi-Environment GitOps Platform on AWS EKS',
       description: 'Designed and implemented a production-grade Kubernetes platform on AWS using a GitOps approach. The platform supports multiple environments (development, staging, production) and enables fully automated infrastructure provisioning and application deployment through declarative configuration.',
       achievements: [
@@ -37,29 +69,13 @@ function ProjectsPage() {
       githubUrl: 'https://github.com',
       liveUrl: null
     },
-    {
-      title: 'Highly Available Microservices Architecture on AWS EKS',
-      description: 'Designed and deployed a scalable, highly available microservices-based architecture on AWS using Kubernetes. The system is built to handle high traffic, ensure fault tolerance, and provide efficient load distribution across services.',
-      achievements: [
-        'Architected a microservices-based application deployed on Amazon EKS',
-        'Implemented Application Load Balancer (ALB) for traffic routing and high availability',
-        'Configured Horizontal Pod Autoscaler (HPA) for dynamic scaling based on workload',
-        'Integrated Amazon RDS (Multi-AZ) for high availability and data durability',
-        'Used Amazon ElastiCache (Redis) to improve performance and reduce latency',
-        'Designed fault-tolerant architecture across multiple Availability Zones',
-        'Performed load testing and optimized system performance under high traffic conditions'
-      ],
-      technologies: ['AWS (EKS, ALB, RDS, ElastiCache, S3)', 'Kubernetes', 'Docker', 'Terraform', 'Helm'],
-      githubUrl: null,
-      liveUrl: null
-    }
   ];
 
   return (
     <>
       <Helmet>
         <title>Projects - DevPortfolio</title>
-        <meta name="description" content="Explore my AWS cloud development projects including serverless APIs, data pipelines, infrastructure automation, and cost optimization solutions." />
+        <meta name="description" content="Explore my AWS and GCP cloud development projects including serverless APIs, data pipelines, infrastructure automation, and cost optimization solutions." />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
@@ -78,14 +94,18 @@ function ProjectsPage() {
                   Featured projects
                 </h1>
                 <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                  A selection of AWS cloud projects demonstrating serverless architecture, infrastructure automation, and data engineering expertise.
+                  A selection of AWS and GCP cloud projects demonstrating serverless architecture, infrastructure automation, FinOps, and data engineering expertise.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {projects.map((project, index) => (
-                  <ProjectCard key={index} project={project} index={index} />
-                ))}
+              <div className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {projects.slice(1).map((project, index) => (
+                    <ProjectCard key={project.title} project={project} index={index} />
+                  ))}
+                </div>
+
+                <ProjectCard project={projects[0]} index={projects.length - 1} featured />
               </div>
             </motion.div>
           </div>

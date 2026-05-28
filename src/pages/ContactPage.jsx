@@ -79,7 +79,7 @@ function ContactPage() {
   return <>
       <Helmet>
         <title>Contact - DevPortfolio</title>
-        <meta name="description" content="Get in touch to discuss AWS cloud development projects, consulting opportunities, or technical collaboration." />
+        <meta name="description" content="Get in touch to discuss AWS and GCP cloud development projects, consulting opportunities, or technical collaboration." />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
