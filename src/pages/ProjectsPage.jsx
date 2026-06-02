@@ -39,7 +39,7 @@ function ProjectsPage() {
       githubUrl: 'https://github.com/youssefmechichi/cloudcost-ai',
       liveUrl: null
     },
-    {
+  /* WORK IN PROGRESS{
       title: 'Multi-Environment GitOps Platform on AWS EKS',
       description: 'Designed and implemented a production-grade Kubernetes platform on AWS using a GitOps approach. The platform supports multiple environments (development, staging, production) and enables fully automated infrastructure provisioning and application deployment through declarative configuration.',
       achievements: [
@@ -69,6 +69,7 @@ function ProjectsPage() {
       githubUrl: 'https://github.com',
       liveUrl: null
     },
+    WORK IN PROGRESS*/ 
   ];
 
   return (
